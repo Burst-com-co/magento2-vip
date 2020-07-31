@@ -39,12 +39,14 @@ class Shipping extends \Magento\Shipping\Model\Carrier\AbstractCarrier implement
         \Magento\Shipping\Model\Rate\ResultFactory $rateResultFactory,
         \Magento\Quote\Model\Quote\Address\RateResult\MethodFactory $rateMethodFactory,
         array $data = [],
-        \Burst\Vip\Helper\Config $config
+        \Burst\Vip\Helper\Config $config,
+        \Magento\Customer\Model\Session $customerSession
     ) {
         $this->logger=$logger;
         $this->_rateResultFactory = $rateResultFactory;
         $this->_rateMethodFactory = $rateMethodFactory;
         $this->_config = $config;
+        $this->customerSession = $customerSession;
         parent::__construct($scopeConfig, $rateErrorFactory, $logger, $data);
     }
 
